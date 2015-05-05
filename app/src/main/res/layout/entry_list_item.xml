@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:elevation="100dp"
+    card_view:cardUseCompatPadding="true"
+    card_view:contentPadding="-3dp"
+    card_view:cardPreventCornerOverlap="false"
+    card_view:cardCornerRadius="1dp"
+    android:background="#fff"
+    >
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:weightSum="2"
+          android:id="@+id/first_row">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_centerVertical="true"
+            android:layout_weight="1">
+
+          <TextView
+              android:id="@+id/arrive_time_label"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Tiempo de llegada"
+              android:textColor="#000"
+
+              android:textStyle="bold"
+              android:singleLine="true"
+              android:layout_centerHorizontal="true"
+              />
+
+
+          <TextView
+              android:id="@+id/arrive_time"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="11:15 AM - May 15"
+              android:textColor="#000"
+              android:layout_below="@id/arrive_time_label"
+              android:layout_centerHorizontal="true"
+
+              />
+
+
+        </RelativeLayout>
+          </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:weightSum="2"
+          android:id="@+id/second_row"
+          android:layout_below="@id/first_row">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_weight="1">
+
+          <TextView
+              android:id="@+id/start_service_time_label"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Inicio del servicio"
+              android:textColor="#000"
+              android:layout_centerHorizontal="true"
+              android:textStyle="bold"
+              android:singleLine="true"
+              />
+
+
+          <TextView
+              android:id="@+id/start_service_time"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#000"
+              android:layout_below="@id/start_service_time_label"
+              android:layout_centerHorizontal="true"
+
+              />
+
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_weight="1">
+
+          <TextView
+              android:id="@+id/exit_time_label"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Tiempo de Salida - fin"
+              android:textColor="#000"
+              android:layout_centerHorizontal="true"
+
+              android:textStyle="bold"
+              android:singleLine="true"
+              />
+
+
+          <TextView
+              android:id="@+id/exit_time"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:textColor="#000"
+              android:layout_below="@id/exit_time_label"
+              android:layout_centerHorizontal="true"
+              />
+
+
+        </RelativeLayout>
+      </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+  </RelativeLayout>
+</android.support.v7.widget.CardView>
