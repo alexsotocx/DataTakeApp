@@ -2,7 +2,6 @@ package com.example.alexander.datatake.adapter;
 
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,14 +23,14 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryViewHol
     this.context = context;
   }
 
-  public void addEntry(DataEntry entry){
+  public void addEntry(DataEntry entry) {
     mDataset.add(entry);
     this.notifyItemInserted(mDataset.size() - 1);
     DataEntry.saveData(mDataset, context);
   }
 
-  public void changeEntry(){
-    if(!mDataset.isEmpty()){
+  public void changeEntry() {
+    if (!mDataset.isEmpty()) {
       DataEntry entry = mDataset.get(mDataset.size() - 1);
       entry.setServiceEndTime(new Date().getTime());
       mDataset.set(mDataset.size() - 1, entry);
@@ -44,7 +43,7 @@ public class EntryAdapter extends RecyclerView.Adapter<EntryAdapter.EntryViewHol
     this.mDataset = mDataset;
   }
 
-  public List<DataEntry> getmDataset(){
+  public List<DataEntry> getmDataset() {
     return mDataset;
   }
 

@@ -6,8 +6,8 @@ package com.example.alexander.datatake.util;
 
 
 import android.content.Context;
-    import android.content.SharedPreferences;
-    import android.content.SharedPreferences.Editor;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 
 public class StorageManager {
 
@@ -46,8 +46,6 @@ public class StorageManager {
 
     editor.commit();
   }
-
-
 
 
   public String getSavedData() {

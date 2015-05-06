@@ -1,8 +1,8 @@
 package com.example.alexander.datatake;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,11 +10,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.alexander.datatake.adapter.EntryAdapter;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +25,7 @@ public class MainActivity extends ActionBarActivity {
   private Button serviceEndTimeButton;
   private EntryAdapter mAdapter;
   private List<DataEntry> dataList;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -34,7 +33,7 @@ public class MainActivity extends ActionBarActivity {
     prepareInterface();
   }
 
-  private void prepareInterface(){
+  private void prepareInterface() {
     arriveTimeButton = (Button) findViewById(R.id.arrive_time_button);
     serviceStartTimeButton = (Button) findViewById(R.id.service_start_time_button);
     serviceEndTimeButton = (Button) findViewById(R.id.service_end_time_button);
@@ -55,24 +54,24 @@ public class MainActivity extends ActionBarActivity {
   }
 
 
-
-
-  class ClickListener implements View.OnClickListener{
+  class ClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
       int viewId = v.getId();
       DataEntry entry = new DataEntry();
-      switch (viewId){
+      switch (viewId) {
         case R.id.arrive_time_button:
           //Toast.makeText(getApplicationContext(), "Boton 1 "+ new Date().toString() + " oprimido", Toast.LENGTH_SHORT).show();
           entry.setArriveTime(new Date().getTime());
           mAdapter.addEntry(entry);
+          mRecyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
           break;
         case R.id.service_start_time_button:
           //Toast.makeText(getApplicationContext(), "Boton 2 "+ new Date().toString() + " oprimido", Toast.LENGTH_SHORT).show();
           entry.setServiceStartTime(new Date().getTime());
           mAdapter.addEntry(entry);
+          mRecyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
           break;
         case R.id.service_end_time_button:
           //Toast.makeText(getApplicationContext(), "Boton 3 "+ new Date().toString() + " oprimido", Toast.LENGTH_SHORT).show();

@@ -21,7 +21,7 @@ public class DataEntry {
   private Long exitTime;
   private Long serviceStartTime;
   private Long serviceEndTime;
-  private static final SimpleDateFormat FORMAT = new SimpleDateFormat("HH:mm:ss - dd MMM") ;
+  private static final SimpleDateFormat FORMAT = new SimpleDateFormat("HH:mm:ss - dd MMM");
 
   public Long getArriveTime() {
     return arriveTime;
@@ -55,34 +55,34 @@ public class DataEntry {
     this.serviceEndTime = serviceEndTime;
   }
 
-  public String getArriveFormatedTime(){
-    if(arriveTime == null){
+  public String getArriveFormatedTime() {
+    if (arriveTime == null) {
       return "No tomada";
-    }else{
+    } else {
       Date date = new Date(arriveTime);
       return FORMAT.format(date);
     }
   }
 
-  public String getServiceStartFormatedTime(){
-    if(serviceStartTime == null){
+  public String getServiceStartFormatedTime() {
+    if (serviceStartTime == null) {
       return "No tomada";
-    }else{
+    } else {
       Date date = new Date(serviceStartTime);
       return FORMAT.format(date);
     }
   }
 
-  public String getServiceEndFormatedTime(){
-    if(serviceEndTime == null){
+  public String getServiceEndFormatedTime() {
+    if (serviceEndTime == null) {
       return "No tomada";
-    }else{
+    } else {
       Date date = new Date(serviceEndTime);
       return FORMAT.format(date);
     }
   }
 
-  public JSONObject toJson(){
+  public JSONObject toJson() {
     JSONObject jsonObject = new JSONObject();
     try {
       jsonObject.put("llegada", arriveTime);
@@ -94,24 +94,24 @@ public class DataEntry {
     return jsonObject;
   }
 
-  public static String generateSaveData(List<DataEntry> dataEntries){
+  public static String generateSaveData(List<DataEntry> dataEntries) {
     JSONArray jsonArray = new JSONArray();
-    for(DataEntry entry: dataEntries){
+    for (DataEntry entry : dataEntries) {
       jsonArray.put(entry.toJson());
     }
     return jsonArray.toString();
   }
 
-  public static void saveData(List<DataEntry> dataEntries, Context context){
+  public static void saveData(List<DataEntry> dataEntries, Context context) {
     StorageManager storageManager = StorageManager.getInstance(context);
     storageManager.setSavedData(generateSaveData(dataEntries));
   }
 
-  public static List<DataEntry> getSavedData(Context context){
+  public static List<DataEntry> getSavedData(Context context) {
     StorageManager storageManager = StorageManager.getInstance(context);
     String jsonSavedData = storageManager.getSavedData();
     List<DataEntry> dataEntries = new ArrayList<>();
-    if(jsonSavedData != null) {
+    if (jsonSavedData != null) {
       try {
         JSONArray jsonArray = new JSONArray(jsonSavedData);
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -132,9 +132,9 @@ public class DataEntry {
     return dataEntries;
   }
 
-  public static String generateCSV(List<DataEntry> dataEntries){
+  public static String generateCSV(List<DataEntry> dataEntries) {
     StringBuilder stringBuilder = new StringBuilder();
-    for(DataEntry entry: dataEntries){
+    for (DataEntry entry : dataEntries) {
       stringBuilder.append(entry.arriveTime).append(',');
       stringBuilder.append(entry.serviceStartTime).append(',');
       stringBuilder.append(entry.serviceEndTime).append('\n');
